@@ -1,0 +1,78 @@
+### Example API Requests
+
+### 1. Admin Service - Register Admin
+POST http://localhost:3002/api/auth/register
+Content-Type: application/json
+
+{
+  "email": "admin@test.com",
+  "password": "admin123",
+  "name": "Test Admin"
+}
+
+### 2. Admin Service - Login Admin
+POST http://localhost:3002/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@example.com",
+  "password": "admin123"
+}
+
+### 3. Admin Service - Create Product (use token from login)
+POST http://localhost:3002/api/products
+Content-Type: application/json
+Authorization: Bearer YOUR_ADMIN_TOKEN_HERE
+
+{
+  "name": "iPhone 15",
+  "description": "Latest iPhone model",
+  "price": 999.99,
+  "category": "Electronics",
+  "stock": 50
+}
+
+### 4. Admin Service - Get All Products
+GET http://localhost:3002/api/products
+Authorization: Bearer YOUR_ADMIN_TOKEN_HERE
+
+### 5. User Service - Register User
+POST http://localhost:3001/api/auth/register
+Content-Type: application/json
+
+{
+  "email": "user@test.com",
+  "password": "user123",
+  "name": "Test User"
+}
+
+### 6. User Service - Login User
+POST http://localhost:3001/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "user@test.com",
+  "password": "user123"
+}
+
+### 7. User Service - Get Profile
+GET http://localhost:3001/api/profile
+Authorization: Bearer YOUR_USER_TOKEN_HERE
+
+### 8. User Service - Add Bank Details
+POST http://localhost:3001/api/bank-details
+Content-Type: application/json
+Authorization: Bearer YOUR_USER_TOKEN_HERE
+
+{
+  "bankName": "Chase Bank",
+  "accountNumber": "1234567890",
+  "routingNumber": "021000021"
+}
+
+### 9. User Service - Request Products (via RabbitMQ)
+GET http://localhost:3001/api/products
+Authorization: Bearer YOUR_USER_TOKEN_HERE
+
+### 10. Public Products (no auth required)
+GET http://localhost:3002/api/public/products
