@@ -5,8 +5,7 @@
 ### Option 1: Automated Setup (Recommended)
 ```bash
 # Run the automated setup script
-start-services.bat
-```
+c```
 
 ### Option 2: Manual Setup
 
